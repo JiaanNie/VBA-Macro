@@ -2,8 +2,8 @@ Sub CombineSheet()
     Dim outputWorkSheetName As String
     'Defining Constant'
     outputWorkSheetName = "combined output"
-
     'FUNCTION CALLED HERE'
+    MsgBox("Combining Sheets")
     Call CreateOputFile(outputWorkSheetName)
 
     'FUNCTION CALLED HERER'
