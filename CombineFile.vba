@@ -20,7 +20,7 @@ Function CreateOputFile(outputWorkSheetName As String) As Boolean
     Dim currentWorkSheet As Worksheet
     containOutputWorkSheet = False
     'First find out if the output file exit in the booklet'
-    For Each currentWorkSheet In ThisWorkbook.Worksheets
+    For Each currentWorkSheet In ActiveWorkbook.Worksheets
         If currentWorkSheet.Name = outputWorkSheetName Then
             containOutputWorkSheet = True
         End If
@@ -28,7 +28,7 @@ Function CreateOputFile(outputWorkSheetName As String) As Boolean
 
     'Next if output sheet does not exists create one'
     If containOutputWorkSheet = False Then
-        ThisWorkbook.Worksheets.Add
+        ActiveWorkbook.Worksheets.Add
         ActiveSheet.Name = outputWorkSheetName
     End If
 
@@ -43,7 +43,7 @@ Function CreateHeaderForOutputFile(outputWorkSheetName As String) As Boolean
     'Defining Constant'
     currentSheetCount = 0
     containSameHeader = False
-    For Each currentWorkSheet In ThisWorkbook.Worksheets
+    For Each currentWorkSheet In ActiveWorkbook.Worksheets
         If currentWorkSheet.Name <> outputWorkSheetName Then
             currentWorkSheet.Select
             currentSheetCount = currentSheetCount + 1
@@ -87,7 +87,7 @@ Dim pasteColumnIndex As Integer, totalColumnInOutputSheet As Integer
 Dim headerName As String
 'start pasting at the second row'
 pastePosition = 2
-For Each currentWorkSheet In ThisWorkbook.Worksheets
+For Each currentWorkSheet In ActiveWorkbook.Worksheets
     If StrComp(currentWorkSheet.Name, outputWorkSheetName, vbTextCompare) = 1 Then
         currentWorkSheet.Select
         totalColumnsInCurrentSheet = Range("A1").SpecialCells(xlCellTypeLastCell).Column
@@ -109,3 +109,4 @@ For Each currentWorkSheet In ThisWorkbook.Worksheets
 Next currentWorkSheet
     CopyAndPasteData = True
 End Function
+  
