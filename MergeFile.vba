@@ -13,7 +13,6 @@ Sub MergeExcelFiles()
             countSheets = 0
 
             Application.ScreenUpdating = False
-            Application.Calculation = xlCalculationManual
 
             Set wbkCurBook = ActiveWorkbook
 
